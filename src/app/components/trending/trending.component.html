@@ -1,12 +1,7 @@
-<div class="card-deck">
-    <div *ngFor="let movie of trending" class="card">
-        <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="poster" class="card-img-top">
-        <div class="card-body">
-            <h4 class="card-title">{{ movie.title }}</h4>
-            <p class="card-text" style="overflow: hidden">{{ movie.overview }}</p>
-        </div>
-        <div class="card-footer">
-            <small class="text-muted">{{ movie.release_date }}</small>
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let movie of trending" class="col-sm-2">
+            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="Poster {{ movie.title }}" class="img-fluid">
         </div>
     </div>
 </div>
