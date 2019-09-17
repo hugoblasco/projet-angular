@@ -3,7 +3,10 @@
         <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="poster" class="card-img-top">
         <div class="card-body">
             <h4 class="card-title">{{ movie.title }}</h4>
-            <p class="card-text">{{ movie.overview }}</p>
+            <p class="card-text" style="overflow: hidden">{{ movie.overview }}</p>
+        </div>
+        <div class="card-footer">
+            <small class="text-muted">{{ movie.release_date }}</small>
         </div>
     </div>
 </div>
