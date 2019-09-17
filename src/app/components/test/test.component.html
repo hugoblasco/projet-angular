@@ -1,6 +1,11 @@
-<div *ngFor="let movie of trending">
-    <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="poster">
-    <h2>{{ movie.title }}</h2>
-    <p>{{ movie.overview }}</p>
+<div class="container-fluid">
+    <div class="row">
+        <div *ngFor="let movie of trending" class="col-sm-3 card">
+            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="poster" style="max-height:80%;max-width:100%">
+            <div class="card-body">
+                <h4 class="card-title">{{ movie.title }}</h4>
+                <p class="card-text">{{ movie.overview }}</p>
+            </div>
+        </div>
+    </div>
 </div>
-<button (click)="getTrending()">Get trending!</button>

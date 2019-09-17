@@ -13,7 +13,11 @@ export class MovieApiService {
     private httpClient: HttpClient
   ) { }
 
-  getTrending(): Observable<any> {
+  getTrending() {
     return this.httpClient.get('https://api.themoviedb.org/3/trending/all/day?api_key=' + apiKey);
+  }
+
+  getGenre() {
+    return this.httpClient.get('https://api.themoviedb.org/3/genre/movie/list?api_key=' + apiKey);
   }
 }

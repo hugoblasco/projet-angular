@@ -14,6 +14,7 @@ export class TestComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getTrending();
   }
 
   getTrending() {
