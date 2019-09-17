@@ -3,10 +3,10 @@ import { MovieApiService } from 'src/app/services/movie-api.service';
 
 @Component({
   selector: 'app-test',
-  templateUrl: './test.component.html',
-  styleUrls: ['./test.component.scss']
+  templateUrl: './trending.component.html',
+  styleUrls: ['./trending.component.scss']
 })
-export class TestComponent implements OnInit {
+export class TrendingComponent implements OnInit {
   trending = [];
 
   constructor(
@@ -26,5 +26,4 @@ export class TestComponent implements OnInit {
       console.log(err);
     });
   }
-
 }

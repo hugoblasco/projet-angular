@@ -17,7 +17,7 @@ export class MovieApiService {
     return this.httpClient.get('https://api.themoviedb.org/3/trending/all/day?api_key=' + apiKey);
   }
 
-  getGenre() {
-    return this.httpClient.get('https://api.themoviedb.org/3/genre/movie/list?api_key=' + apiKey);
+  getGenres(type: string) {
+    return this.httpClient.get('https://api.themoviedb.org/3/genre/' + type + '/list?api_key=' + apiKey);
   }
 }
