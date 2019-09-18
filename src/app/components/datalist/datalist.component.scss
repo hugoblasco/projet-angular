@@ -1,3 +1,14 @@
 li {
     list-style-type: none;
 }
+
+:host {
+    top: 40px;
+    background-color: #eee;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 5px;
+    width: 225px;
+    max-height: 225px;
+    padding: 0px;
+}
