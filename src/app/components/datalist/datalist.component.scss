@@ -1,5 +1,20 @@
 li {
-    list-style-type: none;
+    height: 50px;
+    padding: 0;
+}
+
+a {
+    width: 200px;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-decoration: none;
+    padding: 12px;
+}
+
+div {
+    padding: 0;
 }
 
 :host {
@@ -8,7 +23,6 @@ li {
     position: absolute;
     overflow: hidden;
     border-radius: 5px;
-    width: 225px;
-    max-height: 225px;
-    padding: 0px;
+    width: 226px;
+    max-height: 246px;
 }
