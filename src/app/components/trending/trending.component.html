@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
-        <div *ngFor="let movie of trending" class="col-sm-2">
-            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="Poster {{ movie.title }}" class="img-fluid">
+        <div *ngFor="let movie of trending; let i=index" class="col-sm-3">
+            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="Poster {{ movie.title }}" class="img-fluid" [class.push]="i === 5">
         </div>
     </div>
 </div>
