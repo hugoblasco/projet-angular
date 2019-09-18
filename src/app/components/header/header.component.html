@@ -18,10 +18,8 @@
         </ul>
     </div>
     <form class="form-inline my-2 my-lg-0">
-        <input (keyup)="results=getResults('movie',query)" (ngModel)="query" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" list="results">
+        <input (keyup)="getResults('movie', query)" [(ngModel)]="query" class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search" list="results">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        <datalist id="results">
-            <option *ngFor="let result of results" value="{{ result.title }}">
-        </datalist>
+        <app-datalist [results]="results"></app-datalist>
     </form>
 </nav>

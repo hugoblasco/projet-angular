@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 
 @Component({
@@ -8,22 +8,26 @@ import { MovieApiService } from 'src/app/services/movie-api.service';
 })
 export class HeaderComponent implements OnInit {
   query = '';
-  results = [];
+  results: [] = [];
 
   constructor(
-    private movieApiService: MovieApiService
+    private movieApiService: MovieApiService,
+    private changeDetector: ChangeDetectorRef
   ) { }
 
   ngOnInit() {
   }
 
   getResults(type: string, query: string) {
-    this.movieApiService.getResults(type, query)
-    .subscribe((res: any) => {
-      console.log(res);
-      this.results = res.results;
-    }, err => {
-      console.log(err);
-    });
+    if (query !== '') {
+      this.movieApiService.getResults(type, query)
+      .subscribe((res: any) => {
+        console.log(res);
+        this.results = res.results;
+        this.changeDetector.detectChanges();
+      }, err => {
+        console.log(err);
+      });
+    }
   }
 }

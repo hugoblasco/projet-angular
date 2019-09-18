@@ -9,13 +9,15 @@ import { GenresComponent } from './components/genres/genres.component';
 import { TrendingComponent } from './components/trending/trending.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DatalistComponent } from './components/datalist/datalist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GenresComponent,
     TrendingComponent,
-    HeaderComponent
+    HeaderComponent,
+    DatalistComponent
   ],
   imports: [
     BrowserModule,

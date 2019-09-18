@@ -13,16 +13,21 @@ export class MovieApiService {
   ) { }
 
   getTrending(type: string) {
-    return this.httpClient.get('https://api.themoviedb.org/3/trending/' + type + '/day?api_key=' + apiKey);
+    const params = new HttpParams()
+    .set('api_key', apiKey);
+    return this.httpClient.get('https://api.themoviedb.org/3/trending/' + type + '/day', {params});
   }
 
   getGenres(type: string) {
-    return this.httpClient.get('https://api.themoviedb.org/3/genre/' + type + '/list?api_key=' + apiKey);
+    const params = new HttpParams()
+    .set('api_key', apiKey);
+    return this.httpClient.get('https://api.themoviedb.org/3/genre/' + type + '/list', {params});
   }
 
   getResults(type: string, query: string) {
     const params = new HttpParams()
+    .set('api_key', apiKey)
     .set('query', query);
-    return this.httpClient.get('https://api.themoviedb.org/3/search/' + type + '?api_key=' + apiKey);
+    return this.httpClient.get('https://api.themoviedb.org/3/search/' + type, {params});
   }
 }
