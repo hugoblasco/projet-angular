@@ -10,6 +10,7 @@ import { TrendingComponent } from './components/trending/trending.component';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DatalistComponent } from './components/datalist/datalist.component';
+import { DetailsComponent } from './components/details/details.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { DatalistComponent } from './components/datalist/datalist.component';
     GenresComponent,
     TrendingComponent,
     HeaderComponent,
-    DatalistComponent
+    DatalistComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
