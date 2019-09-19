@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <ul class="list-group">
         <li *ngFor="let result of results" class="list-group-item">
-            <a href="#">{{ result.title }}</a>
+            <a routerLink="/movie/{{result.id}}">{{ result.title }}</a>
         </li>
     </ul>
 </div>

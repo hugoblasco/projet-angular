@@ -18,10 +18,16 @@ export class MovieApiService {
     return this.httpClient.get('https://api.themoviedb.org/3/trending/' + type + '/day', {params});
   }
 
-  getGenres(type: string) {
+  getMovieGenres() {
     const params = new HttpParams()
     .set('api_key', apiKey);
-    return this.httpClient.get('https://api.themoviedb.org/3/genre/' + type + '/list', {params});
+    return this.httpClient.get('https://api.themoviedb.org/3/genre/movie/list', {params});
+  }
+
+  getTvGenres() {
+    const params = new HttpParams()
+    .set('api_key', apiKey);
+    return this.httpClient.get('https://api.themoviedb.org/3/genre/tv/list', {params});
   }
 
   getResults(type: string, query: string) {

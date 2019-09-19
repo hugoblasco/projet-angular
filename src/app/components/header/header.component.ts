@@ -9,6 +9,8 @@ import { MovieApiService } from 'src/app/services/movie-api.service';
 export class HeaderComponent implements OnInit {
   query = '';
   results: [] = [];
+  movieGenres: [] = [];
+  tvGenres: [] = [];
 
   constructor(
     private movieApiService: MovieApiService,
@@ -16,6 +18,28 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getMovieGenres();
+    this.getTvGenres();
+  }
+
+  getMovieGenres() {
+    this.movieApiService.getMovieGenres()
+    .subscribe((res: any) => {
+      console.log(res);
+      this.movieGenres = res.genres;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  getTvGenres() {
+    this.movieApiService.getMovieGenres()
+    .subscribe((res: any) => {
+      console.log(res);
+      this.tvGenres = res.genres;
+    }, err => {
+      console.log(err);
+    });
   }
 
   getResults(type: string, query: string) {
