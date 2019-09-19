@@ -5,18 +5,9 @@ import { DetailsComponent } from './components/details/details.component';
 
 
 const routes: Routes = [
-  {
-    path: '',
-    component: TrendingComponent
-  },
-  {
-    path: 'trending',
-    component: TrendingComponent
-  },
-  {
-    path: 'movie/:id',
-    component: DetailsComponent
-  }
+  { path: '', redirectTo: '/trending', pathMatch: 'full' },
+  { path: 'trending', component: TrendingComponent },
+  { path: 'movie/:id', component: DetailsComponent  }
 ];
 
 @NgModule({

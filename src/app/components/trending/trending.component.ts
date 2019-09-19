@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 
 @Component({
-  selector: 'app-test',
+  selector: 'app-trending',
   templateUrl: './trending.component.html',
   styleUrls: ['./trending.component.scss']
 })

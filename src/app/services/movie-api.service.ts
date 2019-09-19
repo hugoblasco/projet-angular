@@ -36,4 +36,10 @@ export class MovieApiService {
     .set('query', query);
     return this.httpClient.get('https://api.themoviedb.org/3/search/' + type, {params});
   }
+
+  getMovie(id: string) {
+    const params = new HttpParams()
+    .set('api_key', apiKey);
+    return this.httpClient.get('https://api.themoviedb.org/3/movie/' + id, {params});
+  }
 }
