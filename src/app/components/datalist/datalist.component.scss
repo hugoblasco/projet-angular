@@ -1,16 +1,27 @@
 li {
-    height: 50px;
+    height: 40px;
+    line-height: 28px;
     padding: 0;
+    color: #ddd;
+    background-color: #333;
+}
+
+ul{
+    background-color: #ddd;
 }
 
 a {
-    width: 200px;
+    width: auto;
     display: block;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    text-decoration: none;
-    padding: 12px;
+    padding: 6px 12px;
+}
+
+a:hover {
+    cursor: pointer;
+    background-color: #222;
 }
 
 div {
@@ -19,10 +30,9 @@ div {
 
 :host {
     top: 40px;
-    background-color: #eee;
     position: absolute;
     overflow: hidden;
     border-radius: 5px;
     width: 226px;
-    max-height: 246px;
+    max-height: 234px;
 }

@@ -1,7 +1,3 @@
-<div class="jumbotron text-center">
-    <h2>Website's name</h2> 
-</div>
-
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -28,8 +24,8 @@
         </ul>
     </div>
     <form class="form-inline my-2 my-lg-0">
-        <input (keyup)="getResults('movie', query)" [(ngModel)]="query" class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search" list="results">
+        <input (focus)="onFocus()" (blur)="onBlur()" (keyup)="getResults('movie', query)" [(ngModel)]="query" class="form-control mr-sm-2" name="search" placeholder="Search" aria-label="Search" autocomplete="off" required>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        <app-datalist *ngIf="query!==''" [results]="results"></app-datalist>
+        <app-datalist (selectEvent)="onSelect($event)" (mouseEvent)="onMouse($event)" [results]="results" [hidden]="hideDataList()"></app-datalist>
     </form>
 </nav>

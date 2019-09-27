@@ -11,11 +11,26 @@ export class HeaderComponent implements OnInit {
   results: [] = [];
   movieGenres: [] = [];
   tvGenres: [] = [];
+  focus = true;
+  mouse = true;
+  select = false;
+
 
   constructor(
     private movieApiService: MovieApiService,
     private changeDetector: ChangeDetectorRef
   ) { }
+
+  onBlur() {
+    this.focus = true;
+    console.log('focus = ' + this.focus);
+  }
+
+  onFocus() {
+    this.select = false;
+    this.focus = false;
+    console.log('focus = ' + this.focus);
+  }
 
   ngOnInit() {
     this.getMovieGenres();
@@ -33,7 +48,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getTvGenres() {
-    this.movieApiService.getMovieGenres()
+    this.movieApiService.getTvGenres()
     .subscribe((res: any) => {
       console.log(res);
       this.tvGenres = res.genres;
@@ -53,5 +68,20 @@ export class HeaderComponent implements OnInit {
         console.log(err);
       });
     }
+  }
+
+  onSelect(val: boolean) {
+    this.select = val;
+    this.query = '';
+    console.log('select = ' + this.select);
+  }
+
+  onMouse(val: boolean) {
+    this.mouse = val;
+    console.log('mouse = ' + this.mouse);
+  }
+
+  hideDataList(): boolean {
+    return (this.focus && this.mouse) || this.select;
   }
 }

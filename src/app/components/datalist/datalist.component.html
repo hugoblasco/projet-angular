@@ -1,7 +1,7 @@
-<div class="container-fluid">
+<div (mouseenter)="sendMouse(false)" (mouseleave)="sendMouse(true)" class="container-fluid">
     <ul class="list-group">
         <li *ngFor="let result of results" class="list-group-item">
-            <a routerLink="/movie/{{result.id}}">{{ result.title }}</a>
+            <a (click)="onSelect(result.id,true)">{{ result.title }}</a>
         </li>
     </ul>
 </div>
