@@ -14,7 +14,7 @@ export class TrendingComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getTrending('all');
+    this.getTrending('movie');
   }
 
   getTrending(type: string) {

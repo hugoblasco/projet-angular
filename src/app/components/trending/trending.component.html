@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row">
-        <div *ngFor="let movie of trending" class="col-md-2 col-sm-3 col-xs-6">
+        <div *ngFor="let movie of trending" class="col-lg-2 col-sm-3 col-6">
             <a routerLink="/movie/{{movie.id}}">
                 <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="Poster {{ movie.title }}" class="img-fluid">
             </a>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DatalistComponent } from './datalist.component';
+import { SearchFieldComponent } from './search-field.component';
 
-describe('DatalistComponent', () => {
-  let component: DatalistComponent;
-  let fixture: ComponentFixture<DatalistComponent>;
+describe('SearchFieldComponent', () => {
+  let component: SearchFieldComponent;
+  let fixture: ComponentFixture<SearchFieldComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DatalistComponent ]
+      declarations: [ SearchFieldComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DatalistComponent);
+    fixture = TestBed.createComponent(SearchFieldComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

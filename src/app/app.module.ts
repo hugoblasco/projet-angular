@@ -1,24 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { TrendingComponent } from './components/trending/trending.component';
 import { HeaderComponent } from './components/header/header.component';
-import { DatalistComponent } from './components/datalist/datalist.component';
 import { DetailsComponent } from './components/details/details.component';
+import { SearchFieldComponent } from './components/search-field/search-field.component';
+import { ResultsComponent } from './components/results/results.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrendingComponent,
     HeaderComponent,
-    DatalistComponent,
-    DetailsComponent
+    DetailsComponent,
+    SearchFieldComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { DetailsComponent } from './components/details/details.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
-    BsDropdownModule.forRoot()
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

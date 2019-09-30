@@ -1,8 +1,54 @@
-form {
-    position: relative;
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
-ul.dropdown-menu {
-    height: 200px;
-    overflow: auto;
+ul.topnav {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.topnav li a {
+    display: block;
+    padding: 12px 16px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+}
+
+ul.topnav li:first-child a {
+    font-family: "Arial Black", Gadget, sans-serif;
+    color: #4CAF50;
+}
+
+ul.topnav li a:hover:not(.active) {background-color: #111;}
+
+ul.topnav li a.active {background-color: #4CAF50;}
+
+ul.topnav li.search {
+    align-self: center;
+    padding: 0 16px;
+}
+
+ul.topnav li button:hover {
+    color: #fff;
+    background-color: #4CAF50;
+    cursor: pointer;
+}
+
+ul.topnav li input {
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-bottom: 1.5px solid #fff;
+}
+
+@media screen and (max-width: 600px) {
+    // ul.topnav li.right, 
+    // ul.topnav li {}
 }

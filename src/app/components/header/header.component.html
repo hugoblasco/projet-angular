@@ -1,31 +1,22 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li dropdown class="nav-item">
-                <a class="nav-link" href id="basic-link" dropdownToggle (click)="false" aria-controls="basic-link-dropdown">Movies</a>
-                <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="basic-link">
-                    <li *ngFor="let choice of movieGenres">
-                        <a class="dropdown-item" href="#">{{ choice.name }}</a>
-                    </li>
-                </ul>
-            </li>
-            <li dropdown class="nav-item">
-                <a class="nav-link" href id="basic-link" dropdownToggle (click)="false" aria-controls="basic-link-dropdown">TV Shows</a>
-                <ul id="basic-link-dropdown" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="basic-link">
-                    <li *ngFor="let choice of tvGenres">
-                        <a class="dropdown-item" href="#">{{ choice.name }}</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <form class="form-inline my-2 my-lg-0">
-        <input (focus)="onFocus()" (blur)="onBlur()" (keyup)="getResults('movie', query)" [(ngModel)]="query" class="form-control mr-sm-2" name="search" placeholder="Search" aria-label="Search" autocomplete="off" required>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        <app-datalist (selectEvent)="onSelect($event)" (mouseEvent)="onMouse($event)" [results]="results" [hidden]="hideDataList()"></app-datalist>
-    </form>
+<nav>
+    <ul class="topnav">
+        <li>
+            <a href="#home">NITFLEX</a>
+        </li>
+        <li>
+            <a href="#movies">Movies</a>
+        </li>
+        <li>
+            <a href="#tv-shows">TV Shows</a>
+        </li>
+        <li  style="flex-grow: 1"></li>
+        <li class="search">
+            <!--div style="position:relative">
+                <input (focus)="onFocus()" (blur)="onBlur()" (keyup)="getResults('movie', query)" [(ngModel)]="query" name="search" placeholder="Search" autocomplete="off">
+                        <app-datalist (selectEvent)="onSelect($event)" (mouseEvent)="onMouse($event)" [results]="results" [hidden]="hideDataList()"></app-datalist>
+            </div>
+            <button>Search</button-->
+            <app-search-field></app-search-field>
+        </li>
+    </ul>
 </nav>

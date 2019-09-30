@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MovieApiService } from 'src/app/services/movie-api.service';
-import { MovieInterface } from 'src/app/interfaces/movie.interface';
+import { Movie } from 'src/app/interfaces/movie';
 
 @Component({
   selector: 'app-details',
@@ -9,13 +9,12 @@ import { MovieInterface } from 'src/app/interfaces/movie.interface';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  movie: MovieInterface;
+  movie: Movie = {};
   departmentId: string;
 
   constructor(
     private movieApiService: MovieApiService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {

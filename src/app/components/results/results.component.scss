@@ -1,0 +1,28 @@
+.card {
+    padding: auto;
+    height: 248px;
+}
+
+.card img {
+    max-height: 248px;
+    width: 165.333px;
+}
+
+
+.card-body{
+    height: 200px;
+}
+
+.card-title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

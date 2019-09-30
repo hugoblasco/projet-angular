@@ -1,0 +1,60 @@
+input {
+    color: #fff;
+    background-color: #333;
+    border: none;
+    border-bottom: 1.5px solid #fff;
+}
+
+.datalist {
+    top: 48px;
+    position: absolute;
+    overflow: hidden;
+    width: 220px;
+    padding: 0;
+    margin: 0 -8px;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.datalist ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.datalist li {
+    border-bottom: 1px solid #ddd;
+}
+
+.datalist li:last-child {
+    border-bottom: none;
+}
+
+.datalist a {
+    width: auto;
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding: 8px;
+}
+
+.datalist  a:hover {
+    cursor: pointer;
+    font-weight: 600;
+    background-color: #ddd;
+}
+
+button {
+    color: #4CAF50;
+    background-color: #333;
+    border: 1.5px solid #4CAF50;
+    border-radius: 4px;
+    margin-left: 8px;
+    padding: 1px 12px;
+}
+
+button:hover {
+    color: #fff;
+    background-color: #4CAF50;
+}
