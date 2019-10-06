@@ -1,8 +1,8 @@
 input {
-    color: #fff;
+    color: #FFF;
     background-color: #333;
     border: none;
-    border-bottom: 1.5px solid #fff;
+    border-bottom: 1.5px solid #AAA;
 }
 
 .datalist {
@@ -12,7 +12,8 @@ input {
     width: 220px;
     padding: 0;
     margin: 0 -8px;
-    background-color: #fff;
+    background-color: #CCC;
+    box-shadow: 0 0 8px #333;
     border-radius: 4px;
 }
 
@@ -23,7 +24,7 @@ input {
 }
 
 .datalist li {
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #AAA;
 }
 
 .datalist li:last-child {
@@ -31,6 +32,7 @@ input {
 }
 
 .datalist a {
+    color: #333;
     width: auto;
     display: block;
     overflow: hidden;
@@ -42,7 +44,7 @@ input {
 .datalist  a:hover {
     cursor: pointer;
     font-weight: 600;
-    background-color: #ddd;
+    background-color: #AAA;
 }
 
 button {

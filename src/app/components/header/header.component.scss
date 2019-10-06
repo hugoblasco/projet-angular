@@ -2,6 +2,7 @@ nav {
     position: fixed;
     top: 0;
     width: 100%;
+    box-shadow: 0 0 16px #000;
 }
 
 ul.topnav {
@@ -16,19 +17,33 @@ ul.topnav {
 ul.topnav li a {
     display: block;
     padding: 12px 16px;
-    color: #fff;
+    color: #FFF;
     text-align: center;
     text-decoration: none;
 }
 
-ul.topnav li:first-child a {
+ul.topnav li a.logo {
+    padding: 6px 16px;
+    font-size: 24px;
     font-family: "Arial Black", Gadget, sans-serif;
-    color: #4CAF50;
+    cursor: pointer;
+    background-color: #92070E;
+    text-shadow: 0 0 0.5px #000, 0 0 2px #111, 0 0 4px #222;
 }
 
-ul.topnav li a:hover:not(.active) {background-color: #111;}
+ul.topnav li a.logo {
+    cursor: pointer;
+}
 
-ul.topnav li a.active {background-color: #4CAF50;}
+ul.topnav li a:hover:not(.active):not(.logo) {
+    cursor: pointer;
+    background-color: #555;
+}
+
+ul.topnav li a.active {
+    cursor: default;
+    background-color: #000;
+}
 
 ul.topnav li.search {
     align-self: center;

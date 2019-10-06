@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieApiService } from 'src/app/services/movie-api.service';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { SearchResult } from 'src/app/interfaces/search-result';
 
 @Component({
@@ -14,8 +14,9 @@ export class ResultsComponent implements OnInit {
 
   constructor(
     private movieApiService: MovieApiService,
-    private route: ActivatedRoute
-  ) { }
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -33,5 +34,9 @@ export class ResultsComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+  }
+
+  reachPage(pageNb: number) {
+    this.router.navigate(['/results', this.query, pageNb]);
   }
 }

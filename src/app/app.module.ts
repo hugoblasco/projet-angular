@@ -13,6 +13,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { DetailsComponent } from './components/details/details.component';
 import { SearchFieldComponent } from './components/search-field/search-field.component';
 import { ResultsComponent } from './components/results/results.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ResultsComponent } from './components/results/results.component';
     HeaderComponent,
     DetailsComponent,
     SearchFieldComponent,
-    ResultsComponent
+    ResultsComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
