@@ -14,6 +14,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { SearchFieldComponent } from './components/search-field/search-field.component';
 import { ResultsComponent } from './components/results/results.component';
 import { CardComponent } from './components/card/card.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CardComponent } from './components/card/card.component';
     DetailsComponent,
     SearchFieldComponent,
     ResultsComponent,
-    CardComponent
+    CardComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
