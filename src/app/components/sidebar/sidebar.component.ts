@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Genre } from 'src/app/interfaces/genre';
 import { MovieApiService } from 'src/app/services/movie-api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +12,8 @@ export class SidebarComponent implements OnInit {
   genres: Genre[] = [];
 
   constructor(
-    private movieApiService: MovieApiService
+    private movieApiService: MovieApiService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -26,6 +28,10 @@ export class SidebarComponent implements OnInit {
     }, err => {
       console.log(err);
     });
+  }
+
+  discover(id: number) {
+    this.router.navigate(['movie/genre', id]);
   }
 
 }

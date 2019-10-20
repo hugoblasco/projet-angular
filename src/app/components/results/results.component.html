@@ -1,21 +1,6 @@
-<div class="container-fluid">
-    <h1>Search results for "{{ query }}"</h1>
-    <div class="row">
-        <div *ngFor="let result of responseList.results" class="col-sm-6">
-            <app-card [item]="result"></app-card>
-        </div>
-    </div>
-    <div class="pagination">
-        <a [class.disabled]="responseList.page === 1" (click)="reachPage(responseList.page - 1)">Previous</a>
-        <a *ngIf="!([1,2,3].indexOf(responseList.page) >= 0)" (click)="reachPage(1)">1</a>
-        <p *ngIf="!([1,2,3].indexOf(responseList.page) >= 0)">...</p>
-        <a *ngIf="responseList.page - 2 > 0" (click)="reachPage(responseList.page - 2)">{{ responseList.page - 2 }}</a>
-        <a *ngIf="responseList.page - 1 > 0" (click)="reachPage(responseList.page - 1)">{{ responseList.page - 1 }}</a>
-        <a class="active">{{ responseList.page }}</a>
-        <a *ngIf="!(responseList.page + 1 > responseList.total_pages)" (click)="reachPage(responseList.page + 1)">{{ responseList.page + 1 }}</a>
-        <a *ngIf="!(responseList.page + 2 > responseList.total_pages)" (click)="reachPage(responseList.page + 2)">{{ responseList.page + 2 }}</a>
-        <p *ngIf="!([responseList.total_pages-2,responseList.total_pages-1,responseList.total_pages].indexOf(responseList.page) >= 0)">...</p>
-        <a *ngIf="!([responseList.total_pages-2,responseList.total_pages-1,responseList.total_pages].indexOf(responseList.page) >= 0)" (click)="reachPage(responseList.total_pages)">{{ responseList.total_pages }}</a>
-        <a [class.disabled]="responseList.page === responseList.total_pages" (click)="reachPage(responseList.page + 1)">Next</a>
+<div class="row">
+    <div *ngFor="let result of responseList.results" class="col-sm-6">
+        <app-card [item]="result"></app-card>
     </div>
 </div>
+<app-pagination [list]="responseList" [path]="'/results/' + query"></app-pagination>

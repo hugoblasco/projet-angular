@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { Movie } from '../interfaces/movie';
 import { GenreList } from '../interfaces/genre-list';
-import { Observable } from 'rxjs';
+import { Discovery } from '../interfaces/discovery';
+import { TvShow } from '../interfaces/tv-show';
+import { SearchResult } from '../interfaces/search-result';
 
 const apiKey = '6ad0c1332948999e8a178c3fd93d2567';
 
@@ -27,7 +30,7 @@ export class MovieApiService {
     return this.httpClient.get('https://api.themoviedb.org/3/genre/' + type + '/list', {params});
   }
 
-  getResults(type: string, query: string, page?: string) {
+  getResults(type: string, query: string, page?: string): Observable<SearchResult> {
     const params = new HttpParams()
     .set('api_key', apiKey)
     .set('query', query)
@@ -39,5 +42,20 @@ export class MovieApiService {
     const params = new HttpParams()
     .set('api_key', apiKey);
     return this.httpClient.get('https://api.themoviedb.org/3/movie/' + id, {params});
+  }
+
+  getTvShow(id: string): Observable<TvShow> {
+    const params = new HttpParams()
+    .set('api_key', apiKey);
+    return this.httpClient.get('https://api.themoviedb.org/3/tv/' + id, {params});
+  }
+
+  getDiscovery(type: string, genre: string, page?: string): Observable<Discovery> {
+    const params = new HttpParams()
+    .set('api_key', apiKey)
+    .set('with_genres', genre)
+    .set('page', page)
+    .set('sort_by', 'popularity.desc');
+    return this.httpClient.get('https://api.themoviedb.org/3/discover/' + type, {params});
   }
 }

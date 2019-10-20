@@ -1,26 +1,7 @@
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-2" [class.hidden]="!sideBarVisible">
-            <app-sidebar></app-sidebar>
-        </div>
-        <div [class.col-md-10]="sideBarVisible">
-            <div class="container-fluid">
-                <div class="title">
-                    <button (click)="triggerSideBar()">
-                        <fa-icon *ngIf="!sideBarVisible" [icon]="faBars"></fa-icon>
-                        <fa-icon *ngIf="sideBarVisible" [icon]="faTimes"></fa-icon>
-                    </button>
-                    <h2>Trending</h2>
-                </div>
-                <div class="row">
-                    <div *ngFor="let movie of trending" class="col-lg-3 col-sm-6">
-                        <a routerLink="/movie/{{movie.id}}">
-                            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="Poster {{ movie.title }}" class="img-fluid">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="row">
+    <div *ngFor="let movie of trending" class="col-lg-3 col-sm-6">
+        <a routerLink="/movie/{{movie.id}}">
+            <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="Poster {{ movie.title }}" class="img-fluid">
+        </a>
     </div>
 </div>

@@ -28,15 +28,11 @@ export class ResultsComponent implements OnInit {
 
   getResult(type: string, query: string, page?: string) {
     this.movieApiService.getResults(type, query, page)
-    .subscribe((res: any) => {
-      console.log(res);
+    .subscribe(res => {
       this.responseList = res;
     }, err => {
       console.log(err);
+      this.router.navigate(['/trending']);
     });
-  }
-
-  reachPage(pageNb: number) {
-    this.router.navigate(['/results', this.query, pageNb]);
   }
 }

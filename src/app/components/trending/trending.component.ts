@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 import { Movie } from 'src/app/interfaces/movie';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-trending',
@@ -9,13 +8,10 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./trending.component.scss']
 })
 export class TrendingComponent implements OnInit {
-  faBars = faBars;
-  faTimes = faTimes;
   trending: Movie[] = [];
-  sideBarVisible = false;
 
   constructor(
-    private movieApiService: MovieApiService
+    private movieApiService: MovieApiService,
   ) { }
 
   ngOnInit() {
@@ -30,9 +26,5 @@ export class TrendingComponent implements OnInit {
     }, err => {
       console.log(err);
     });
-  }
-
-  triggerSideBar() {
-    this.sideBarVisible = !this.sideBarVisible;
   }
 }

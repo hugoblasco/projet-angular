@@ -1,3 +1,21 @@
 <app-header></app-header>
 
-<router-outlet></router-outlet>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2" [class.hidden]="!sideBarVisible" style="margin:0;padding:0;">
+            <app-sidebar></app-sidebar>
+        </div>
+        <div [class.col-md-10]="sideBarVisible" style="margin:0;padding:0;">
+            <div class="container-fluid">
+                <div class="title">
+                    <button (click)="triggerSideBar()">
+                        <fa-icon *ngIf="!sideBarVisible" [icon]="faBars"></fa-icon>
+                        <fa-icon *ngIf="sideBarVisible" [icon]="faTimes"></fa-icon>
+                    </button>
+                    <h2>Page title</h2>
+                </div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

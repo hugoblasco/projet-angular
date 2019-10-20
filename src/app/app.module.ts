@@ -15,6 +15,8 @@ import { SearchFieldComponent } from './components/search-field/search-field.com
 import { ResultsComponent } from './components/results/results.component';
 import { CardComponent } from './components/card/card.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { GenresComponent } from './components/genres/genres.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     SearchFieldComponent,
     ResultsComponent,
     CardComponent,
-    SidebarComponent
+    SidebarComponent,
+    GenresComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

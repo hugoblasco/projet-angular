@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 import { Movie } from 'src/app/interfaces/movie';
 
@@ -14,7 +14,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private movieApiService: MovieApiService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -27,10 +28,10 @@ export class DetailsComponent implements OnInit {
   getMovie(id: string) {
     this.movieApiService.getMovie(id)
     .subscribe(res => {
-      console.log(res);
       this.movie = res;
     }, err => {
       console.log(err);
+      this.router.navigate(['/trending']);
     });
   }
 }

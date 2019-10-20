@@ -1,0 +1,13 @@
+<div class="pagination">
+    <a [class.disabled]="list.page === 1" (click)="reachPage(list.page - 1)">Previous</a>
+    <a *ngIf="!([1,2,3].indexOf(list.page) >= 0)" (click)="reachPage(1)">1</a>
+    <p *ngIf="!([1,2,3].indexOf(list.page) >= 0)">...</p>
+    <a *ngIf="list.page - 2 > 0" (click)="reachPage(list.page - 2)">{{ list.page - 2 }}</a>
+    <a *ngIf="list.page - 1 > 0" (click)="reachPage(list.page - 1)">{{ list.page - 1 }}</a>
+    <a class="active">{{ list.page }}</a>
+    <a *ngIf="!(list.page + 1 > list.total_pages)" (click)="reachPage(list.page + 1)">{{ list.page + 1 }}</a>
+    <a *ngIf="!(list.page + 2 > list.total_pages)" (click)="reachPage(list.page + 2)">{{ list.page + 2 }}</a>
+    <p *ngIf="!([list.total_pages-2,list.total_pages-1,list.total_pages].indexOf(list.page) >= 0)">...</p>
+    <a *ngIf="!([list.total_pages-2,list.total_pages-1,list.total_pages].indexOf(list.page) >= 0)" (click)="reachPage(list.total_pages)">{{ list.total_pages }}</a>
+    <a [class.disabled]="list.page === list.total_pages" (click)="reachPage(list.page + 1)">Next</a>
+</div>

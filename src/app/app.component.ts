@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-root',
@@ -6,4 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  faBars = faBars;
+  faTimes = faTimes;
+  sideBarVisible = false;
+
+  triggerSideBar() {
+    this.sideBarVisible = !this.sideBarVisible;
+  }
 }
