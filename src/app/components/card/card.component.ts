@@ -12,7 +12,6 @@ import { MediaTypeService } from 'src/app/services/media-type.service';
 export class CardComponent implements OnInit {
   @Input() item: Movie|TvShow;
 
-
   constructor(
     private router: Router,
     private mediaTypeService: MediaTypeService

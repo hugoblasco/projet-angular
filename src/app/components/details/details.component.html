@@ -1,6 +1,9 @@
 <div>
     <p *ngIf="type==='movie'">{{ item.title }}</p>
+    <p *ngIf="type==='tv'">{{ item.name }}</p>
     <p *ngIf="type==='movie'">{{ item.release_date }}</p>
+    <p *ngIf="type==='tv'">{{ item.first_air_date }}</p>
     <p>{{ item.overview }}</p>
-    <img src="https://image.tmdb.org/t/p/w500/{{item.backdrop_path}}" alt="Poster {{item.title}}">
+    <img *ngIf="type==='movie'" src="https://image.tmdb.org/t/p/w500/{{item.backdrop_path}}" alt="Poster {{item.title}}">
+    <img *ngIf="type==='tv'" src="https://image.tmdb.org/t/p/w500/{{item.backdrop_path}}" alt="Poster {{item.name}}">
 </div>

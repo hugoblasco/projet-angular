@@ -2,13 +2,16 @@
     <div class="poster-wrapper">
         <div class="poster">
             <a (click)="select(item.id)">
-                <img src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="Poster of &quot;{{ item.title }}&quot;">
+                <img *ngIf="mediaTypeService.type==='movie'" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="Poster of &quot;{{ item.title }}&quot;">
+                <img *ngIf="mediaTypeService.type==='tv'" src="https://image.tmdb.org/t/p/w500/{{item.poster_path}}" alt="Poster of &quot;{{ item.name }}&quot;">
             </a>
         </div>
     </div>
     <div class="body">
-        <div class="header"><a (click)="select(item.id)">{{ item.title }}</a></div>
+        <div *ngIf="mediaTypeService.type==='movie'" class="header"><a (click)="select(item.id)">{{ item.title }}</a></div>
+        <div *ngIf="mediaTypeService.type==='tv'" class="header"><a (click)="select(item.id)">{{ item.name }}</a></div>
         <div class="content">{{ item.overview }}</div>
-        <div class="footer">Release date: {{ item.release_date }}</div>
+        <div *ngIf="mediaTypeService.type==='movie'" class="footer">Release date: {{ item.release_date }}</div>
+        <div *ngIf="mediaTypeService.type==='tv'" class="footer">First air date: {{ item.first_air_date }}</div>
     </div>
 </div>
