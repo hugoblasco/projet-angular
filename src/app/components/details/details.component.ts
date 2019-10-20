@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 import { Movie } from 'src/app/interfaces/movie';
+import { TvShow } from 'src/app/interfaces/tv-show';
 
 @Component({
   selector: 'app-details',
@@ -9,8 +10,9 @@ import { Movie } from 'src/app/interfaces/movie';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  movie: Movie = {};
+  item: Movie|TvShow = {};
   departmentId: string;
+  type = '';
 
   constructor(
     private movieApiService: MovieApiService,
@@ -20,18 +22,27 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
+      this.type = params.get('type');
       const id = params.get('id');
-      this.getMovie(id);
+      this.getItem(this.type, id);
     });
   }
 
-  getMovie(id: string) {
-    this.movieApiService.getMovie(id)
-    .subscribe(res => {
-      this.movie = res;
-    }, err => {
-      console.log(err);
-      this.router.navigate(['/trending']);
-    });
+  getItem(type: string, id: string) {
+    if (type === 'movie') {
+      this.movieApiService.getMovie(id)
+      .subscribe(res => {
+        this.item = res;
+      }, err => {
+        console.log(err);
+      });
+    } else {
+      this.movieApiService.getTvShow(id)
+      .subscribe(res => {
+        this.item = res;
+      }, err => {
+        console.log(err);
+      });
+    }
   }
 }

@@ -3,7 +3,6 @@ import { Discovery } from 'src/app/interfaces/discovery';
 import { MovieApiService } from 'src/app/services/movie-api.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Genre } from 'src/app/interfaces/genre';
-import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-genres',
@@ -11,8 +10,6 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./genres.component.scss']
 })
 export class GenresComponent implements OnInit {
-  faBars = faBars;
-  faTimes = faTimes;
   discovery: Discovery = {};
   genre: Genre = {};
 
@@ -24,14 +21,15 @@ export class GenresComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
+      const type = params.get('type');
       const id = params.get('id');
       const page = params.get('page');
-      this.getGenre('movie', parseInt(id));
-      this.getDiscovery('movie', id, page);
+      this.getGenre(type, parseInt(id));
+      this.getDiscovery(type, id, page);
     });
   }
 
-  getDiscovery(type: string, genre: string, page?: string) {
+  getDiscovery(type: string, genre: string, page: string = '1') {
     this.movieApiService.getDiscovery(type, genre, page)
     .subscribe(res => {
       this.discovery = res;

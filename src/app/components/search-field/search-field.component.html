@@ -1,9 +1,10 @@
 <div class="container">
-    <input (focus)="hideDataList(true)" (blur)="hideDataList(false)" (keyup)="search($event.key);getResults('movie')" [(ngModel)]="query" placeholder="Search" autocomplete="off">
+    <input (focus)="hideDataList(true)" (blur)="hideDataList(false)" (keyup)="search($event.key);getResults()" [(ngModel)]="query" placeholder="Search" autocomplete="off">
     <div  [hidden]="hiddenDataList" (mouseenter)="mouseOverDataList=true" (mouseleave)="mouseOverDataList=false" class="datalist container-fluid">
         <ul>
             <li *ngFor="let result of results">
-                <a (click)="select(result.id)">{{ result.title }}</a>
+                <a *ngIf="mediaTypeService.type==='movie'" (click)="select(result.id)">{{ result.title }}</a>
+                <a *ngIf="mediaTypeService.type==='tv'" (click)="select(result.id)">{{ result.name }}</a>
             </li>
         </ul>
     </div>

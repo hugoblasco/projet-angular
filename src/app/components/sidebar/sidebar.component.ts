@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Genre } from 'src/app/interfaces/genre';
 import { MovieApiService } from 'src/app/services/movie-api.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { MediaTypeService } from 'src/app/services/media-type.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -13,11 +14,12 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     private movieApiService: MovieApiService,
+    private mediaTypeService: MediaTypeService,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.getGenres("movie");
+    this.getGenres('movie');
   }
 
   getGenres(type: string) {
@@ -31,7 +33,7 @@ export class SidebarComponent implements OnInit {
   }
 
   discover(id: number) {
-    this.router.navigate(['movie/genre', id]);
+    this.router.navigate([this.mediaTypeService.type, 'genre', id]);
   }
 
 }

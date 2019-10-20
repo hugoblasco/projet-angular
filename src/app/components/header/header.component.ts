@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MediaTypeService } from 'src/app/services/media-type.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,11 +8,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  active = 0;
+  type = 'movie';
 
   constructor(
+    private mediaTypeService: MediaTypeService,
+    private router: Router
   ) { }
 
   ngOnInit() {
+    this.type = this.mediaTypeService.type;
+    this.reachTrending();
+  }
+
+  switchMediaType() {
+    this.mediaTypeService.switchMediaType();
+    this.type = this.mediaTypeService.type;
+    this.reachTrending();
+  }
+
+  reachTrending() {
+    this.router.navigate([this.type, 'trending', '1']);
   }
 }

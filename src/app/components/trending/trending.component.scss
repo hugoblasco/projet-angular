@@ -1,3 +1,8 @@
-div.row img {
+div.row a {
+    display: block;
     margin-bottom: 15px;
+}
+
+div.row a:hover {
+    cursor: pointer;
 }

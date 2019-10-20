@@ -7,14 +7,13 @@ import { GenresComponent } from './components/genres/genres.component';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'trending', pathMatch: 'full' },
-  { path: 'trending', component: TrendingComponent },
-  { path: 'trending/:page', component: TrendingComponent },
-  { path: 'movie/:id', component: DetailsComponent  },
-  { path: 'results/:query', component: ResultsComponent },
-  { path: 'results/:query/:page', component: ResultsComponent },
+  { path: '', redirectTo: 'movie/trending/1', pathMatch: 'full' },
+  { path: ':type/trending/:page', component: TrendingComponent },
+  { path: ':type/results/:query', component: ResultsComponent },
+  { path: ':type/results/:query/:page', component: ResultsComponent },
   { path: ':type/genre/:id', component: GenresComponent },
-  { path: ':type/genre/:id/:page', component: GenresComponent }
+  { path: ':type/genre/:id/:page', component: GenresComponent },
+  { path: ':type/details/:id', component: DetailsComponent  }
 ];
 
 @NgModule({

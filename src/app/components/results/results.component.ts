@@ -11,6 +11,7 @@ import { SearchResult } from 'src/app/interfaces/search-result';
 export class ResultsComponent implements OnInit {
   responseList: SearchResult = {};
   query = '';
+  type = '';
 
   constructor(
     private movieApiService: MovieApiService,
@@ -20,15 +21,17 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.subscribe((params: ParamMap) => {
+      this.type = params.get('type');
       this.query = params.get('query');
       const page = params.get('page');
-      this.getResult('movie', this.query, page);
+      this.getResult(this.type, this.query, page);
     });
   }
 
-  getResult(type: string, query: string, page?: string) {
+  getResult(type: string, query: string, page: string = '1') {
     this.movieApiService.getResults(type, query, page)
     .subscribe(res => {
+      console.log(res);
       this.responseList = res;
     }, err => {
       console.log(err);

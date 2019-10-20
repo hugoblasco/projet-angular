@@ -17,6 +17,7 @@ import { CardComponent } from './components/card/card.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { GenresComponent } from './components/genres/genres.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
+import { MediaTypeService } from './services/media-type.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,9 @@ import { PaginationComponent } from './components/pagination/pagination.componen
     FormsModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    MediaTypeService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

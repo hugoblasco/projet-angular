@@ -1,7 +1,7 @@
-import { Movie } from './movie';
 import { TvShow } from './tv-show';
+import { Movie } from './movie';
 
-export interface SearchResult {
+export interface Trending {
     page?: number;
     results?: Movie[]|TvShow[];
     total_pages?: number;
